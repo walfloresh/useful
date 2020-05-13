@@ -1,0 +1,28 @@
+#1 Install Brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+#2 Install wireguard
+brew install wireguard-tools
+#brew install wireguard-go
+
+#copy profile
+mkdir ~/VPN
+cd VPN
+nano wg0.conf
+echo $'#!/usr/local/bin/bash\nano\nsudo wg-quick up wg0.conf' > VPN_ON
+echo $'#!/usr/local/bin/bash\nano\nsudo wg-quick down wg0.conf' > VPN_OFF
+chmod +x VPN_O*
+
+#acceso directo
+echo sudo VPN_ON>Desktop/VPN_ON.command
+echo sudo VPN_OFF>Desktop/VPN_OFF.command
+chmod +x Desktop/VPN_O*
+
+#sudo invisible
+sudo visudo
+
+#user ALL=NOPASSWD: /Users/usuario/VPN/VPN_ON
+#user ALL=NOPASSWD: /Users/usuario/VPN/VPN_OFF
+#user ALL=NOPASSWD: /Users/$usuario/Desktop/VPN_ON.command
+#user ALL=NOPASSWD: /Users/$usuario/Desktop/VPN_OFF.command
+
