@@ -9,8 +9,8 @@ brew install wireguard-tools
 mkdir ~/VPN
 cd VPN
 nano wg0.conf
-echo $'#!/usr/local/bin/bash\nano\nsudo wg-quick up wg0.conf' > VPN_ON
-echo $'#!/usr/local/bin/bash\nano\nsudo wg-quick down wg0.conf' > VPN_OFF
+echo $'#!/usr/local/bin/bash\nsudo wg-quick up wg0.conf' > VPN_ON
+echo $'#!/usr/local/bin/bash\nsudo wg-quick down wg0.conf' > VPN_OFF
 chmod +x VPN_O*
 
 #acceso directo
